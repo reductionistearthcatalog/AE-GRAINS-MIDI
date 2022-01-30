@@ -13,7 +13,9 @@ To set up the environment needed to install this firmware, please refer to the A
 This program relies on the Talkie Library by Peter Knight as modified by Jean-Luc Deladrière with "Talko Counter for Grains", which is also included in the folder of this firmware. The orinal "TALKO COUNTER" also including talkie.cpp and talkie.h of this version of the Talkie Library can be found here: https://www.ginkosynthese.com/grains-codes
 The phonems used with this firmware as provided via "Vocab_US_TI99.c" and others can be found with the talkie-library for Arduino here: https://www.arduinolibraries.info/libraries/talkie 
 
-This program was modified by the Reductionist Earth Catalog to be MIDI-controlled
+This program was modified by the Reductionist Earth Catalog to be MIDI-controlled. MIDI note-on messages trigger individual words 
+from the vocabulary. Note 0-127 on channel 1 triggers words 0-127 of the vocab list, Note 0-127 on channel 2 triggers words 128-255 
+trigger words 128-255 of the vocab list, etc. A table of associated channel, midi note, and vocab words can be found in word-note-table.txt.
   
 ## Note
 
