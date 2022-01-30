@@ -16,8 +16,9 @@
   The phonems used with this firmware as provided via "Vocab_US_TI99.c" and others can be found with the talkie-library for Arduino here:
   https://www.arduinolibraries.info/libraries/talkie 
 
-  This program was modified by the Reductionist Earth Catalog to be MIDI-controlled. MIDI note-on messages trigger individual words from the vocabulary. Note 0-127 on channel 1 triggers words 0-127 of the vocab list, Note 0-127 on channel 2 triggers words 128-255 trigger words 128-255 of the vocab list, etc.
-A table of associated channel, midi note, and vocab words can be found in word-note-table.txt.
+  This program was modified by the Reductionist Earth Catalog to be MIDI-controlled. MIDI note-on messages trigger individual words 
+  from the vocabulary. Note 0-127 on channel 1 triggers words 0-127 of the vocab list, Note 0-127 on channel 2 triggers words 128-255 
+  trigger words 128-255 of the vocab list, etc. A table of associated channel, midi note, and vocab words can be found in word-note-table.txt.
   
   Note: if you want to adjust the way Pitch and Speed of the talking-voice can be modified please have a look at "talkie.cpp" 
   in the current folder and look for the values mapped via "analogRead(0)" and "analogRead(1)".
@@ -68,7 +69,7 @@ Talkie voice;                   // Prepare speach - Use PIN 11 only, because thi
 // added this line to create MIDI default instance
 MIDI_CREATE_DEFAULT_INSTANCE();
 
-static uint8_t* words[323] =    // List of words to be select from via GRAINS CV ins and/or pots
+static uint8_t* words[303] =    // List of words to be select from via GRAINS CV ins and/or pots
 {
   spt_A,   
   spt_ABOUT,
@@ -378,9 +379,9 @@ static uint8_t* words[323] =    // List of words to be select from via GRAINS CV
 // added this function to handle MIDI noteOn information
 void handleNoteOn(byte channel, byte pitch, byte velocity)
 {
-  int say_word = (channel * 127) + pitch;
+  int say_word = (channel * 128) + pitch;
   digitalWrite(DIGITAL_OUT_PIN, HIGH);
-  voice.say(words[constrain(say_word,0,304)]);
+  voice.say(words[constrain(say_word,0,303)]);
 }
 
 // added this function to handle MIDI noteOff information
