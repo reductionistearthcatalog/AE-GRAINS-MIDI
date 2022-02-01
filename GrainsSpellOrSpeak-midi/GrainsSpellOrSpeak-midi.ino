@@ -379,7 +379,7 @@ static uint8_t* words[303] =    // List of words to be select from via GRAINS CV
 // added this function to handle MIDI noteOn information
 void handleNoteOn(byte channel, byte pitch, byte velocity)
 {
-  int say_word = (channel * 128) + pitch;
+  int say_word = ((channel-1) * 128) + pitch;
   digitalWrite(DIGITAL_OUT_PIN, HIGH);
   voice.say(words[constrain(say_word,0,303)]);
 }
