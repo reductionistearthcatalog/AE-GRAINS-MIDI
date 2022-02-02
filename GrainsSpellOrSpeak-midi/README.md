@@ -16,6 +16,9 @@ The phonems used with this firmware as provided via "Vocab_US_TI99.c" and others
 This program was modified by the Reductionist Earth Catalog to be MIDI-controlled. MIDI note-on messages trigger individual words 
 from the vocabulary. Note 0-127 on channel 1 triggers words 0-127 of the vocab list, Note 0-127 on channel 2 triggers words 128-255 
 trigger words 128-255 of the vocab list, etc. A table of associated channel, midi note, and vocab words can be found in word-note-table.txt.
+
+This firmware relies on the Arduino MIDI library. For more information and installation instructions, 
+visit https://github.com/FortySevenEffects/arduino_midi_library
   
 ## Note
 
